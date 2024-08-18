@@ -1,0 +1,28 @@
+<section class="bg-gray-50 dark:bg-gray-900 bg-opacity-50 dark:bg-opacity-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:min-h-50% lg:py-0">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Welcome to Your Journal
+        </h1>
+        <div
+            class="w-full bg-white rounded-lg shadow dark:border md:mt-0  xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+           
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <ul role="list" class="flex gap-6 flex-wrap justify-between items-center">
+                    @for (jornal of jornalArray; track $index) {
+                    <app-card [journalObj]="jornal" />
+                    }
+                </ul>
+            </div>
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8 flex justify-end">
+                <button
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-400">
+                    <svg class="w-5 h-5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <span>Add Journal</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

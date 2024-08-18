@@ -1,0 +1,153 @@
+<section class="bg-gray-50 dark:bg-gray-900 bg-opacity-50 dark:bg-opacity-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:min-h-50% lg:py-0">
+        <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            My Adventure's Journal
+        </a>
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Start you Journal. Create your account
+                </h1>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6" action="#">
+                    <div class="flex flex-col md:flex-row md:space-x-4">  <!-- Flex container per nome e cognome -->
+                        <div class="w-full md:w-1/2">  
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': name.invalid && (name.touched || name.dirty)
+                                }">First Name<span *ngIf="name.invalid && (name.touched || name.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="name" type="text" name="name" id="name" 
+                                [ngClass]="{
+                                    'border-2 dark:border-red-400 border-red-400': name.invalid && (name.touched || name.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Giuseppi">
+                        </div>
+                        <div class="w-full md:w-1/2"> 
+                            <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': lastName.invalid && (lastName.touched || lastName.dirty)
+                                }">Last Name <span *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="lastName" type="text" name="lastName" id="lastName" placeholder="Rossi"
+                                [ngClass]="{
+                                    '!border-2 !dark:border-red-400 !border-red-400': lastName.invalid && (lastName.touched || lastName.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:space-x-4">  <!-- Flex container per email e telefono -->
+                        <div class="w-full md:w-1/2">  
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': email.invalid && (email.touched || email.dirty)
+                                }">Email <span *ngIf="email.invalid && (email.touched || email.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="email" type="email" name="email" id="email" 
+                                [ngClass]="{
+                                    'border-2 dark:border-red-400 border-red-400': email.invalid && (email.touched || email.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
+                        </div>
+                        <div class="w-full md:w-1/2"> 
+                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': phone.invalid && (phone.touched || phone.dirty)
+                                }">Phone Number <span *ngIf="phone.invalid && (phone.touched || phone.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="phone" type="text" name="phone" id="phone" placeholder="+39 3331122444"
+                                [ngClass]="{
+                                    '!border-2 !dark:border-red-400 !border-red-400': phone.invalid && (phone.touched || phone.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:space-x-4">  <!-- Flex container per email e data di nascita -->
+                        <div class="w-full md:w-1/2">  
+                            <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': country.invalid && (country.touched || country.dirty)
+                                }">Country <span *ngIf="country.invalid && (country.touched || country.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="country" type="email" name="country" id="country" 
+                                [ngClass]="{
+                                    'border-2 dark:border-red-400 border-red-400': country.invalid && (country.touched || country.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
+                        </div>
+                        <div class="w-full md:w-1/2"> 
+                            <label for="birthDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': birthDate.invalid && (birthDate.touched || birthDate.dirty)
+                                }">Birth Date <span *ngIf="birthDate.invalid && (birthDate.touched || birthDate.dirty)">(incorrect)</span>
+                            </label>
+                            <input formControlName="birthDate" type="date" name="birthDate" id="birthDate" 
+                                [ngClass]="{
+                                    '!border-2 !dark:border-red-400 !border-red-400': birthDate.invalid && (birthDate.touched || birthDate.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:space-x-4 relative"> 
+                        <div class="w-full md:w-1/2 ">  
+                            <div class="flex items-center mb-2">
+                                <i class="mr-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 group fas fa-question-circle">
+                                    <div class="hidden group-hover:block absolute mt-1 left-0 w-max p-2 border border-gray-300 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700 text-gray-900 dark:text-gray-300 text-sm font-normal">
+                                        <ul class="space-y-2 font-sans">
+                                          <li>La password deve contenere almeno 8 caratteri e massimo 16.</li>
+                                          <li>Deve includere almeno una lettera maiuscola.</li>
+                                          <li>Deve includere almeno un numero.</li>
+                                          <li>Deve includere almeno un carattere speciale.</li>
+                                        </ul>
+                                      </div>
+                                </i>
+                                <label for="password" class="block text-sm font-medium text-gray-900 dark:text-white"
+                                  [ngClass]="{
+                                      '!dark:text-red-500 !text-red-500': password.invalid && (password.touched || password.dirty)
+                                  }">Password 
+                                  <span *ngIf="password.invalid && (password.touched || password.dirty)">(incorrect)</span>
+                                </label>
+                              </div>
+                            <input formControlName="password" type="password" name="password" id="password" 
+                                [ngClass]="{
+                                    'border-2 dark:border-red-400 border-red-400': password.invalid && (password.touched || password.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••">
+                        </div>
+                        <div class="w-full md:w-1/2"> 
+                            <label for="passwordCheck" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                [ngClass]="{
+                                    '!dark:text-red-500 !text-red-500': passwordCheck.invalid && (passwordCheck.touched || passwordCheck.dirty)
+                                }">Repeat Password <span *ngIf="passwordCheck.invalid && (passwordCheck.touched || passwordCheck.dirty)"> (incorrect)</span>
+                            </label>
+                            <input formControlName="passwordCheck" type="password" name="passwordCheck" id="passwordCheck" placeholder="••••••••"
+                                [ngClass]="{
+                                    '!border-2 !dark:border-red-400 !border-red-400': passwordCheck.invalid && (passwordCheck.touched || passwordCheck.dirty)
+                                }"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                              <input formControlName="privacyCheck" id="privacyCheck" aria-describedby="privacyCheck" type="checkbox"
+                              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800">
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label for="privacyCheck" 
+                              [ngClass]="{
+                                'underline decoration-dashed decoration-red-500 decoration-2 underline-offset-2': privacyCheck.invalid && (privacyCheck.touched || privacyCheck.dirty)
+                                }"
+                              class="text-gray-500 dark:text-gray-300">"I have read and agree to the Privacy Policy and consent to the processing of my personal data. </label>
+                              <a [routerLink]="['/register']" class="hover:underline decoration-blue-500 decoration-2 dark:decoration-blue-500 underline-offset-2">Read our Privacy Policy"</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-400 dark:focus:ring-blue-800">Sign Up</button>
+                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                        Already have an account? <a [routerLink]="['/login']" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign In</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

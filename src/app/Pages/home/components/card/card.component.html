@@ -1,0 +1,17 @@
+
+<li class="bg-gray-100 rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-700 transition-colors duration-200 hover:border-gray-500 dark:hover:border-gray-400 p-4 flex items-center">
+    <div class="flex-shrink-0 mr-4">
+        <img class="w-10 h-10 rounded-lg" src="{{journalObj.gameImg}}" alt="gameType-Logo">
+    </div>
+    <div class="flex-1">
+        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+           {{journalObj.title}}
+        </p>
+        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+            {{journalObj.game}}
+        </p>
+    </div>
+    <div class="text-base font-semibold text-gray-900 dark:text-white">
+        <app-edit-button [id]="journalObj.id" />
+    </div>
+</li>
